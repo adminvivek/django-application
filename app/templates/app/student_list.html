@@ -20,6 +20,7 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Department</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -29,6 +30,7 @@
     <tr>
         <td>{{ student.identityNumber }}</td>
         <td>{{ student.name }}</td>
+        <td>{{ student.department }}</td>
         <td>
             <a href="{% url 'student_detail' student.id %}">
                 <i class="fa fa-eye" aria-hidden="true" style="font-size: 25px;"></i>
