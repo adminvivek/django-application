@@ -1,0 +1,16 @@
+steps:
+  # Step 1: Checkout the code from your repository
+  # - name: 'gcr.io/cloud-builders/git'
+  #   args: ['clone', '--single-branch', '--branch', 'your-branch', 'https://github.com/yourusername/yourrepository.git', '.']
+
+  # Step 2: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/starry-strand-407716/django-application', '.']
+
+  # Step 3: Push the Docker image to Google Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/starry-strand-407716/django-application']
+
+  # Step 4: Deploy the application using Cloud Run (assuming you're using Cloud Run)
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['run', 'deploy', 'django-application', '--image', 'gcr.io/starry-strand-407716/django-application', '--platform', 'managed', '--region', 'us-central1']
