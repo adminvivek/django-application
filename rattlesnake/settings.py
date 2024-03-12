@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&*!^wz)2c^thwfx4tz*%r%vho0k)582hgmeg#z7_hmql0bx0&i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -132,3 +132,6 @@ CORS_ORIGIN_WHITELIST = [
     'https://django-application-meyw4f66ya-uc.a.run.app',
     # Add other domains if needed
 ]
+
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
